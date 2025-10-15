@@ -1,0 +1,18 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1760547167536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1760547167536,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"abcrental\",\n  \"version\": \"0.0.0\",\n  \"scripts\": {\n    \"ng\": \"ng\",\n    \"start\": \"ng serve\",\n    \"build\": \"ng build\",\n    \"watch\": \"ng build --watch --configuration development\",\n    \"test\": \"ng test\",\n    \"run:all\": \"node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js\"\n  },\n  \"prettier\": {\n    \"overrides\": [\n      {\n        \"files\": \"*.html\",\n        \"options\": {\n          \"parser\": \"angular\"\n        }\n      }\n    ]\n  },\n  \"private\": true,\n  \"dependencies\": {\n    \"@angular/animations\": \"^20.3.3\",\n    \"@angular/cdk\": \"^20.2.5\",\n    \"@angular/common\": \"^20.1.0\",\n    \"@angular/compiler\": \"^20.1.0\",\n    \"@angular/core\": \"^20.1.0\",\n    \"@angular/forms\": \"^20.1.0\",\n    \"@angular/material\": \"^20.2.5\",\n    \"@angular/platform-browser\": \"^20.1.0\",\n    \"@angular/router\": \"^20.1.0\",\n    \"rxjs\": \"~7.8.0\",\n    \"tslib\": \"^2.3.0\",\n    \"zone.js\": \"~0.15.0\"\n  },\n  \"devDependencies\": {\n    \"@angular-architects/module-federation\": \"^20.0.0\",\n    \"@angular/build\": \"^20.1.1\",\n    \"@angular/cli\": \"^20.1.1\",\n    \"@angular/compiler-cli\": \"^20.1.0\",\n    \"@types/jasmine\": \"~5.1.0\",\n    \"angular-cli-ghpages\": \"^2.0.1\",\n    \"jasmine-core\": \"~5.8.0\",\n    \"karma\": \"~6.4.0\",\n    \"karma-chrome-launcher\": \"~3.2.0\",\n    \"karma-coverage\": \"~2.2.0\",\n    \"karma-jasmine\": \"~5.1.0\",\n    \"karma-jasmine-html-reporter\": \"~2.1.0\",\n    \"ngx-build-plus\": \"^20.0.0\",\n    \"typescript\": \"~5.8.2\"\n  }\n}\n"
+        }
+    ]
+}
