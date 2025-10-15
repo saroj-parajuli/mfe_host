@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/app/app.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1760547768105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1760547776525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { Component } from '@angular/core';\n import { MainContainer } from './main-container/mainContainer.component';\n-import { ThemeService } from '../../services/theme/theme.servce';\n+import { ThemeService } from '../services/theme/theme.servce';\n @Component({\n   selector: 'app-root',\n   standalone: true,\n   imports: [MainContainer],\n"
+                },
+                {
+                    "date": 1760547781664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import { Component } from '@angular/core';\n+import { MainContainer } from './main-container/mainContainer.component';\n+import { ThemeService } from ';\n+@Component({\n+  selector: 'app-root',\n+  standalone: true,\n+  imports: [MainContainer],\n+  templateUrl: './app.component.html',\n+  styleUrls: ['./app.component.scss']\n+})\n+export class AppComponent {}\n"
+                },
+                {
+                    "date": 1760547789549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,13 @@\n import { Component } from '@angular/core';\n import { MainContainer } from './main-container/mainContainer.component';\n-import { ThemeService } from ';\n+import { ThemeService } from './services/theme.service';\n @Component({\n   selector: 'app-root',\n   standalone: true,\n   imports: [MainContainer],\n   templateUrl: './app.component.html',\n   styleUrls: ['./app.component.scss']\n })\n-export class AppComponent {}\n-import { Component } from '@angular/core';\n-import { MainContainer } from './main-container/mainContainer.component';\n-import { ThemeService } from '../services/theme/theme.servce';\n-@Component({\n-  selector: 'app-root',\n-  standalone: true,\n-  imports: [MainContainer],\n-  templateUrl: './app.component.html',\n-  styleUrls: ['./app.component.scss']\n-})\n-export class AppComponent {}\n+export class AppComponent {\n+  constructor(private themeService: ThemeService) {}\n+}\n"
+                },
+                {
+                    "date": 1760547824664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n   selector: 'app-root',\n   standalone: true,\n   imports: [MainContainer],\n   templateUrl: './app.component.html',\n-  styleUrls: ['./app.component.scss']\n+  styleUrls: ['./app.component.scss'],\n+  changeDetection: ChangeDetectionStrategy.OnPush\n })\n export class AppComponent {\n   constructor(private themeService: ThemeService) {}\n }\n"
+                },
+                {
+                    "date": 1760547835692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import { Component } from '@angular/core';\n+import { MainContainer } from './main-container/mainContainer.component';\n+import { ThemeService } from '';\n+@Component({\n+  selector: 'app-root',\n+  standalone: true,\n+  imports: [MainContainer],\n+  templateUrl: './app.component.html',\n+  styleUrls: ['./app.component.scss'],\n+  changeDetection: ChangeDetectionStrategy.OnPush\n+})\n+export class AppComponent {\n+  constructor(private themeService: ThemeService) {}\n+}\n"
+                },
+                {
+                    "date": 1760547841547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { Component } from '@angular/core';\n import { MainContainer } from './main-container/mainContainer.component';\n-import { ThemeService } from '';\n+import { ThemeService } from './services/';\n @Component({\n   selector: 'app-root',\n   standalone: true,\n   imports: [MainContainer],\n@@ -11,18 +11,4 @@\n })\n export class AppComponent {\n   constructor(private themeService: ThemeService) {}\n }\n-import { Component } from '@angular/core';\n-import { MainContainer } from './main-container/mainContainer.component';\n-import { ThemeService } from './services/theme.service';\n-@Component({\n-  selector: 'app-root',\n-  standalone: true,\n-  imports: [MainContainer],\n-  templateUrl: './app.component.html',\n-  styleUrls: ['./app.component.scss'],\n-  changeDetection: ChangeDetectionStrategy.OnPush\n-})\n-export class AppComponent {\n-  constructor(private themeService: ThemeService) {}\n-}\n"
+                },
+                {
+                    "date": 1760547854817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-import { Component } from '@angular/core';\n+import { Component, ChangeDetectionStrategy } from '@angular/core';\n import { MainContainer } from './main-container/mainContainer.component';\n-import { ThemeService } from './services/';\n+import { ThemeService } from './services/theme/theme.servce';\n @Component({\n   selector: 'app-root',\n   standalone: true,\n   imports: [MainContainer],\n"
+                }
+            ],
+            "date": 1760547768105,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\nimport { MainContainer } from './main-container/mainContainer.component';\nimport { ThemeService } from '../../services/theme/theme.servce';\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [MainContainer],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {}\n"
+        }
+    ]
+}

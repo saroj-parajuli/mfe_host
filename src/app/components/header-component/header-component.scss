@@ -1,30 +1,50 @@
 @use '@angular/material' as mat;
-
+@use '../../../sass/custom-theme.scss' as theme;
 
 .main-header {
+  @include theme.theme-header;
+  @include theme.theme-responsive-container;
   height: 64px;
-  padding: 0 16px; 
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   
   .app-title {
-    font-size: 1.25rem;
-    font-weight: 500;
+    @include theme.theme-text-primary;
+    font-size: var(--mat-sys-typescale-headline-small-size);
+    font-weight: var(--mat-sys-typescale-headline-small-weight);
+    color: var(--mat-sys-on-primary);
+    margin: 0;
   }
 
   .spacer {
     flex: 1 1 auto;
   }
+
+  .nav-button {
+    @include theme.theme-interactive;
+    color: var(--mat-sys-on-primary);
+    border-radius: var(--mat-sys-corner-small);
+    padding: var(--mat-sys-spacing-2) var(--mat-sys-spacing-3);
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
   @media (max-width: 768px) {
     .hide-on-mobile {
       display: none;
     }
 
-    display: flex;
     justify-content: space-between;
-    align-items: center;
 
     .app-title {
       margin-left: auto;
       margin-right: auto; 
+      font-size: var(--mat-sys-typescale-title-medium-size);
     }
   }
 }

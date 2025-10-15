@@ -22,9 +22,11 @@ export class SchedulingCardComponent {
   readonly selectedDate = signal<Date>(this.today);
   readonly selectedTime = signal<string | null>(null);
   readonly timeZone = signal<string>('CDT');
+  precomputedAvailableTimes: string[] = [];
 
   constructor(private _snackBar: MatSnackBar) {
     this.selectableDates.set(this.generateBusinessDays(this.today, 7));
+    this.precomputedAvailableTimes = this.generateAvailableTimes(this.selectedDate());
 
     effect(() => {
       const firstAvailable = this.availableTimes().find((time:string) => this.isTimeAvailable(time));
@@ -93,5 +95,8 @@ export class SchedulingCardComponent {
       time.setMinutes(time.getMinutes() + 30);
     }
     return availableTimes;
+  }
+  trackByTime(index: number, time: string): string {
+    return time;
   }
 }

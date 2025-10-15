@@ -1,37 +1,36 @@
+@use '../../sass/variables.scss' as variables;
+@use '../../sass/mixin.scss' as mixins;
+@use '../../sass/custom-theme.scss' as theme;
+
 .main-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #cccccc;
+    @include mixins.full-height-container;
+    @include theme.theme-surface;
     min-height: 100vh;
 }
 
 .app-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-        padding: 0.5rem;
+    @include mixins.flex-container;
+    @include theme.theme-responsive-container;
+    gap: var(--mat-sys-spacing-4);
     box-sizing: border-box;
-    .left-content,
-    .right-content {
-        flex-grow: 1;
-        padding: 1rem;
-        box-sizing: border-box;
-        background-color: #d1d1d1;
-        .left-content-card,
-        .right-content-card {
-            background-color: #d1d1d1;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            padding: 1rem;
-            box-sizing: border-box;
-        }
-    }
-  
+    
     @media (min-width: 768px) {
         flex-direction: row;
         justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem;
+        gap: var(--mat-sys-spacing-6);
+    }
+    
+    .left-content,
+    .right-content {
+        @include theme.theme-surface;
+        flex-grow: 1;
+        padding: var(--mat-sys-spacing-4);
+        box-sizing: border-box;
+        
+        .left-content-card,
+        .right-content-card {
+            @include theme.theme-card;
+            padding: var(--mat-sys-spacing-4);
+        }
     }
 }

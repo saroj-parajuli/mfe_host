@@ -1,12 +1,113 @@
 @use '@angular/material' as mat;
 
-$my-primary: mat.define-palette(mat.$indigo-palette);
-$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$my-theme: mat.define-light-theme((
+@include mat.core();
+
+// Define the original theme with Azure (blue) and Rose palettes
+$my-theme: mat.define-theme((
   color: (
-    primary: $my-primary,
-    accent: $my-accent,
+    theme-type: light,
+    primary: mat.$azure-palette,     // Original Azure blue
+    tertiary: mat.$rose-palette,     // Original Rose accent
+  ),
+  typography: (
+    brand-family: 'Roboto, sans-serif',
+    plain-family: 'Roboto, sans-serif',
+  ),
+  density: (
+    scale: 0
   )
 ));
 
-@include mat.all-component-themes($my-theme);
+// Core theme mixins - keeping existing functionality
+@mixin theme-surface {
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+}
+
+@mixin theme-surface-variant {
+  background-color: var(--mat-sys-surface-variant);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+@mixin theme-primary-surface {
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+}
+
+// Component-specific mixins - preserving original styling intent
+@mixin theme-header {
+  @include theme-primary-surface;
+  box-shadow: var(--mat-sys-level1);
+}
+
+@mixin theme-footer {
+  @include theme-surface-variant;
+  border-top: 1px solid var(--mat-sys-outline-variant);
+}
+
+@mixin theme-card {
+  @include theme-surface;
+  border-radius: var(--mat-sys-corner-medium);
+  box-shadow: var(--mat-sys-level2);
+}
+
+@mixin theme-interactive {
+  transition: all 0.2s var(--mat-sys-motion-easing-standard);
+  
+  &:hover {
+    background-color: var(--mat-sys-surface-container-high);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--mat-sys-primary);
+    outline-offset: 2px;
+  }
+}
+
+@mixin theme-text-primary {
+  color: var(--mat-sys-on-surface);
+  font-family: var(--mat-sys-typescale-body-large-font);
+}
+
+@mixin theme-text-secondary {
+  color: var(--mat-sys-on-surface-variant);
+  font-family: var(--mat-sys-typescale-body-medium-font);
+}
+
+@mixin theme-responsive-container {
+  padding: var(--mat-sys-spacing-4);
+  
+  @media (max-width: 768px) {
+    padding: var(--mat-sys-spacing-2);
+  }
+}
+
+// Apply theme and define custom properties
+html {
+  @include mat.all-component-themes($my-theme);
+  
+  // Preserve original custom spacing system
+  --mat-sys-spacing-1: 4px;
+  --mat-sys-spacing-2: 8px;
+  --mat-sys-spacing-3: 12px;
+  --mat-sys-spacing-4: 16px;
+  --mat-sys-spacing-5: 20px;
+  --mat-sys-spacing-6: 24px;
+  --mat-sys-spacing-8: 32px;
+  
+  // Preserve original elevation system
+  --mat-sys-level1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --mat-sys-level2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --mat-sys-level3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  
+  // Preserve original corner radius system
+  --mat-sys-corner-small: 4px;
+  --mat-sys-corner-medium: 8px;
+  --mat-sys-corner-large: 12px;
+  --mat-sys-corner-extra-large: 16px;
+  
+  // Preserve original motion system
+  --mat-sys-motion-easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --mat-sys-motion-duration-short: 150ms;
+  --mat-sys-motion-duration-medium: 250ms;
+}

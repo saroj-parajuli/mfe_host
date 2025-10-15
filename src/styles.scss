@@ -1,1 +1,45 @@
+@use './sass/custom-theme.scss';
+
+/* Global styles with theme integration */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--mat-sys-typescale-body-large-font);
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+}
+
+/* Ensure consistent Material Design 3 theming */
+.mat-mdc-card {
+  --mdc-elevated-card-container-color: var(--mat-sys-surface-container-low);
+  --mdc-elevated-card-container-elevation: var(--mat-sys-level1);
+}
+
+.mat-mdc-button {
+  --mdc-text-button-label-text-color: var(--mat-sys-primary);
+  --mdc-text-button-hover-state-layer-color: var(--mat-sys-primary);
+}
+
+.mat-mdc-raised-button {
+  --mdc-filled-button-container-color: var(--mat-sys-primary);
+  --mdc-filled-button-label-text-color: var(--mat-sys-on-primary);
+}
+
+/* Focus indicators for accessibility */
+:focus-visible {
+  outline: 2px solid var(--mat-sys-primary);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color var(--mat-sys-motion-duration-short) var(--mat-sys-motion-easing-standard),
+              color var(--mat-sys-motion-duration-short) var (--mat-sys-motion-easing-standard),
+              border-color var(--mat-sys-motion-duration-short) var(--mat-sys-motion-easing-standard);
+}
 

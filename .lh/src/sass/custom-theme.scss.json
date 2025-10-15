@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/sass/custom-theme.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1760547509494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1760547520100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n @use '@angular/material' as mat;\n \n // Using indigo palette for primary colors to provide a modern and professional look\n-$my-primary: mat.define-palette(mat.$indigo-palette);\n+// Using $pink-palette for the accent color to provide a vibrant and energetic feel.\n+// The shades A200, A100, and A400 are chosen for their balance of brightness and contrast.\n $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);\n+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);\n $my-theme: mat.define-light-theme((\n   color: (\n     primary: $my-primary,\n     accent: $my-accent,\n"
+                },
+                {
+                    "date": 1760547529139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,14 +2,16 @@\n \n // Using indigo palette for primary colors to provide a modern and professional look\n // Using $pink-palette for the accent color to provide a vibrant and energetic feel.\n // The shades A200, A100, and A400 are chosen for their balance of brightness and contrast.\n-$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);\n-$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);\n+// Defining a light theme for the application using the primary and accent palettes.\n+// This theme provides a clean and modern look suitable for most use cases.\n $my-theme: mat.define-light-theme((\n   color: (\n     primary: $my-primary,\n     accent: $my-accent,\n   )\n ));\n+  )\n+));\n \n @include mat.all-component-themes($my-theme);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1760547534263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,17 @@\n \n // Using indigo palette for primary colors to provide a modern and professional look\n // Using $pink-palette for the accent color to provide a vibrant and energetic feel.\n // The shades A200, A100, and A400 are chosen for their balance of brightness and contrast.\n-// Defining a light theme for the application using the primary and accent palettes.\n-// This theme provides a clean and modern look suitable for most use cases.\n+$my-primary: mat.define-palette(mat.$indigo-palette, 500, 300, 700);\n+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);\n $my-theme: mat.define-light-theme((\n   color: (\n     primary: $my-primary,\n     accent: $my-accent,\n   )\n ));\n-  )\n-));\n \n+// This line applies the defined theme to all Angular Material components globally\n+@include mat.all-component-themes($my-theme);\n+\n @include mat.all-component-themes($my-theme);\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1760547509494,
+            "name": "Commit-0",
+            "content": "@use '@angular/material' as mat;\n\n// Using indigo palette for primary colors to provide a modern and professional look\n$my-primary: mat.define-palette(mat.$indigo-palette);\n$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);\n$my-theme: mat.define-light-theme((\n  color: (\n    primary: $my-primary,\n    accent: $my-accent,\n  )\n));\n\n@include mat.all-component-themes($my-theme);"
+        }
+    ]
+}

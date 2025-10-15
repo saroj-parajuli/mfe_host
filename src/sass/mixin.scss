@@ -1,18 +1,177 @@
-@use './variables.scss' as global;
+@use './variables.scss' as variables;
 
-/* Mixin for button styling */
+@mixin flex-container($direction: column, $gap: variables.$gap-medium) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin responsive-container {
+  flex-direction: column;
+  gap: variables.$gap-small;
+  padding: variables.$padding-small;
+  
+  @media (min-width: variables.$tablet-breakpoint) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: variables.$gap-medium;
+    padding: variables.$padding;
+  }
+}
+
+@mixin content-card {
+  background-color: variables.$content-background-color;
+  border-radius: variables.$card-border-radius;
+  box-shadow: variables.$card-shadow;
+  padding: variables.$padding;
+  box-sizing: border-box;
+}
+
+@mixin scheduling-card-base {
+  border-top: variables.$border-thick solid variables.$border-color;
+  border-radius: variables.$card-border-radius;
+  background: variables.$white-background;
+  box-shadow: variables.$light-shadow;
+  width: 100%;
+  max-width: variables.$max-width;
+  padding: 0;
+}
+
+@mixin header-note-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  color: variables.$text-secondary;
+  font-style: oblique;
+  background-color: variables.$background-action-color;
+  padding: 0.8rem 0;
+  margin-bottom: variables.$gap-medium;
+  gap: variables.$gap-small;
+}
+
+@mixin section-spacing {
+  padding: 0 0 variables.$padding;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin arrow-indicator {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .arrow-base,
+  .arrow-tip {
+    position: absolute;
+    color: variables.$green-indicator;
+    font-variation-settings: 'FILL' 0, 'wght' 400;
+  }
+  
+  .arrow-tip {
+    transform: translateX(7px);
+    font-size: 20px;
+    font-variation-settings: 'FILL' 0, 'wght' 700;
+  }
+}
+
+@mixin time-slot-button {
+  @include button-style;
+  border: 1px solid variables.$border-light;
+  font-size: 0.9em;
+  padding: 6px 12px;
+  
+  &.selected {
+    background: variables.$selected-background;
+    border-color: variables.$primary-color;
+    color: variables.$primary-color;
+  }
+  
+  &:disabled {
+    background: variables.$disabled-color;
+    color: variables.$text-muted;
+    cursor: not-allowed;
+  }
+  
+  &:hover:not(:disabled) {
+    background: variables.$background-hover-color;
+    color: variables.$primary-color;
+  }
+}
+
+@mixin gradient-button {
+  @include button-style;
+  background: linear-gradient(to right, variables.$primary-color, variables.$accent-color);
+  border-radius: variables.$radius;
+  min-width: auto;
+  color: variables.$white-background;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin: variables.$gap-medium 0;
+  
+  &:hover {
+    background: linear-gradient(to right, variables.$accent-color, variables.$primary-color);
+    
+    mat-icon {
+      transform: translateX(6px);
+      color: variables.$white-background;
+    }
+  }
+  
+  &:disabled {
+    background: variables.$disabled-color;
+    color: variables.$text-muted;
+    cursor: not-allowed;
+    
+    mat-icon {
+      color: variables.$text-muted;
+    }
+  }
+}
+
+@mixin link-button {
+  @include button-style;
+  color: variables.$primary-color;
+  text-transform: none;
+  font-size: 0.8em;
+  border: 0;
+  background-color: inherit;
+}
+
+@mixin full-height-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+@mixin content-section {
+  flex-grow: 1;
+  padding: variables.$padding;
+  box-sizing: border-box;
+  background-color: variables.$content-background-color;
+}
+
 @mixin button-style {
     padding: 8px 16px;
     border-radius: 4px;
     text-align: center;
     text-transform: uppercase;
     color: #191919;
-    background-color: global.$disabled-color;
-    border: 1px solid #b0bec5;
+    background-color: variables.$disabled-color;
+    border: 1px solid variables.$border-light;
     min-width: 120px;
   }
-  
-  /* Outlined Icon Global Styles */
+
   @mixin outlined-icon($size: 24px, $color: inherit, $weight: 400) {
     font-family: 'Material Icons Outlined' !important;
     font-weight: $weight;

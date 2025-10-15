@@ -1,19 +1,20 @@
 <div class="main-container">
-  <app-header-component />
+  <app-header-component></app-header-component>
   <div class="app-container">
-      <mat-card class="left-content">
+      <mat-card class="sidebar-content">
         <mat-card-title >
-          <!--left Content Title -->
+          <!-- This is the title for the left content section. Add a meaningful title here if needed. -->
         </mat-card-title>
         <mat-card-content>
           <p> left content goes here</p>
         </mat-card-content>
       </mat-card>
-      <mat-card class="right-content">
+      <mat-card class="details-panel">
         <mat-card-title>
-          <!--right Content Title -->
+          <!-- Title for the right content section -->
         </mat-card-title>
         <mat-card-content >
+          <!-- This router-outlet is used to render the routes for the right content section -->
           <router-outlet></router-outlet>
         </mat-card-content>
       </mat-card>
