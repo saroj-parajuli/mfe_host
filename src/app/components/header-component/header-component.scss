@@ -8,8 +8,11 @@
   display: flex;
   align-items: center;
   position: sticky;
+  position: -webkit-sticky; // Safari support
   top: 0;
-  z-index: 100;
+  z-index: 1000; // Increased z-index to ensure it stays above content
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Add shadow when sticky
   
   .app-title {
     @include theme.theme-text-primary;

@@ -7,16 +7,27 @@ $shared-padding: var(--mat-sys-spacing-4);
 .main-container {
     @include mixins.full-height-container;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    // Ensure header sticks to top
+    app-header-component {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+    }
 }
 
 .app-container {
     @include mixins.flex-container;
     @include theme.theme-responsive-container;
     flex-direction: row;
+    flex: 1; // Take remaining space after header and footer
     gap: var(--mat-sys-spacing-4);
     box-sizing: border-box;
-    min-height: calc(100vh - 120px);
     padding: var(--mat-sys-spacing-2);
+    overflow: auto; // Enable scrolling within the container
     
     // Desktop layout (1024px and above) - 10% - 80% - 10%
     .left-sidebar,
