@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { MainContainer } from './main-container/mainContainer.component';
 import { ThemeService } from './services/theme/theme.servce';
+import { DashboardComponent } from './components/dashboard-component/dashboard-component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MainContainer],
+  imports: [DashboardComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
