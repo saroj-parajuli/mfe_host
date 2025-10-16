@@ -1,36 +1,12 @@
 <div class="main-container">
     <app-header-component></app-header-component>
     <div class="app-container">
-        <mat-card class="left-sidebar">
-          <mat-card-title 
-            [class.collapsed]="leftSidebarCollapsed" 
-            (click)="isMobile ? toggleLeftSidebar() : null">
-            <span>Left Sidebar</span>
-          </mat-card-title>
-          <mat-card-content [class.collapsed]="leftSidebarCollapsed">
-            <p>Left sidebar content. Navigation or filters can go here.</p>
-            <p>This content is collapsible on mobile devices for better space utilization.</p>
-          </mat-card-content>
-        </mat-card>
-        
         <mat-card class="main-content">
           <mat-card-title>
             <span>Main Content</span>
           </mat-card-title>
           <mat-card-content>
             <router-outlet></router-outlet>
-          </mat-card-content>
-        </mat-card>
-        
-        <mat-card class="right-sidebar">
-          <mat-card-title 
-            [class.collapsed]="rightSidebarCollapsed" 
-            (click)="isMobile ? toggleRightSidebar() : null">
-            <span>Right Sidebar</span>
-          </mat-card-title>
-          <mat-card-content [class.collapsed]="rightSidebarCollapsed">
-            <p>Right sidebar content. Additional info or tools can go here.</p>
-            <p>Also collapsible on mobile for optimal viewing experience.</p>
           </mat-card-content>
         </mat-card>
     </div>

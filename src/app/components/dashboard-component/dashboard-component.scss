@@ -24,138 +24,58 @@ $shared-padding: var(--mat-sys-spacing-4);
     @include theme.theme-responsive-container;
     flex-direction: row;
     flex: 1; // Take remaining space after header and footer
-    gap: var(--mat-sys-spacing-4);
+    justify-content: center; // Center the content horizontally
     box-sizing: border-box;
     padding: var(--mat-sys-spacing-2);
     overflow: auto; // Enable scrolling within the container
     
-    // Desktop layout (1024px and above) - 10% - 80% - 10%
-    .left-sidebar,
-    .right-sidebar {
-        @include theme.theme-surface;
-        flex: 0 0 10%;
-        padding: var(--mat-sys-spacing-4);
-        box-sizing: border-box;
-        min-height: 100%;
-        overflow-y: auto;
-    }
-    
     .main-content {
         @include theme.theme-surface;
-        flex: 1;
+        width: 80%;
+        max-width: 1200px; // Optional: set a max-width for very large screens
         padding: var(--mat-sys-spacing-4);
         box-sizing: border-box;
         min-height: 100%;
         overflow-y: auto;
     }
     
-    // Large tablet layout (768px - 1023px) - 15% - 70% - 15%
+    // Tablet layout (768px - 1023px) - Increase width slightly for smaller screens
     @media (max-width: 1023px) and (min-width: 768px) {
-        gap: var(--mat-sys-spacing-3);
         padding: var(--mat-sys-spacing-1);
         
-        .left-sidebar,
-        .right-sidebar {
-            flex: 0 0 15%;
-            padding: var(--mat-sys-spacing-3);
-        }
-        
         .main-content {
+            width: 90%;
             padding: var(--mat-sys-spacing-3);
         }
     }
     
-    // Small tablet layout (576px - 767px) - Hide one sidebar, show other as 20%
+    // Small tablet layout (576px - 767px) - Nearly full width
     @media (max-width: 767px) and (min-width: 576px) {
-        flex-direction: column;
-        gap: var(--mat-sys-spacing-2);
         padding: var(--mat-sys-spacing-1);
         
-        .left-sidebar {
-            flex: 0 0 auto;
-            order: 1;
-            padding: var(--mat-sys-spacing-2);
-            min-height: auto;
-        }
-        
         .main-content {
-            flex: 1;
-            order: 2;
+            width: 95%;
             padding: var(--mat-sys-spacing-3);
             min-height: 60vh;
         }
-        
-        .right-sidebar {
-            flex: 0 0 auto;
-            order: 3;
-            padding: var(--mat-sys-spacing-2);
-            min-height: auto;
-        }
     }
     
-    // Mobile layout (575px and below) - Single column, collapsible sidebars
+    // Mobile layout (575px and below) - Full width with minimal padding
     @media (max-width: 575px) {
-        flex-direction: column;
-        gap: var(--mat-sys-spacing-1);
         padding: var(--mat-sys-spacing-1);
         
-        .left-sidebar,
-        .right-sidebar {
-            flex: 0 0 auto;
-            padding: var(--mat-sys-spacing-2);
-            min-height: auto;
-            
-            // Collapsible behavior on mobile
-            mat-card-title {
-                cursor: pointer;
-                user-select: none;
-                
-                &::after {
-                    content: '▼';
-                    float: right;
-                    transition: transform 0.3s ease;
-                }
-                
-                &.collapsed::after {
-                    transform: rotate(-90deg);
-                }
-            }
-            
-            mat-card-content {
-                transition: max-height 0.3s ease;
-                overflow: hidden;
-                
-                &.collapsed {
-                    max-height: 0;
-                    padding: 0;
-                }
-            }
-        }
-        
-        .left-sidebar {
-            order: 1;
-        }
-        
         .main-content {
-            flex: 1;
-            order: 2;
+            width: 100%;
             padding: var(--mat-sys-spacing-2);
             min-height: 50vh;
-        }
-        
-        .right-sidebar {
-            order: 3;
         }
     }
     
     // Extra small mobile (400px and below) - Minimal padding
     @media (max-width: 400px) {
         padding: 4px;
-        gap: 4px;
         
-        .left-sidebar,
-        .main-content,
-        .right-sidebar {
+        .main-content {
             padding: var(--mat-sys-spacing-1);
         }
     }

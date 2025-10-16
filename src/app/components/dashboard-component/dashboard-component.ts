@@ -24,8 +24,6 @@ import { MatCardModule, MatCardTitle } from '@angular/material/card';
   templateUrl: './dashboard-component.html',
 })
 export class DashboardComponent {
-  leftSidebarCollapsed = false;
-  rightSidebarCollapsed = false;
   isMobile = false;
 
   @HostListener('window:resize', ['$event'])
@@ -39,21 +37,5 @@ export class DashboardComponent {
 
   private checkScreenSize() {
     this.isMobile = window.innerWidth <= 575;
-    // Auto-collapse sidebars on mobile for better UX
-    if (this.isMobile) {
-      this.leftSidebarCollapsed = true;
-      this.rightSidebarCollapsed = true;
-    } else {
-      this.leftSidebarCollapsed = false;
-      this.rightSidebarCollapsed = false;
-    }
-  }
-
-  toggleLeftSidebar() {
-    this.leftSidebarCollapsed = !this.leftSidebarCollapsed;
-  }
-
-  toggleRightSidebar() {
-    this.rightSidebarCollapsed = !this.rightSidebarCollapsed;
   }
 }
