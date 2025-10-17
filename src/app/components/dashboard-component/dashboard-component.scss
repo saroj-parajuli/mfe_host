@@ -10,7 +10,7 @@ $shared-padding: var(--mat-sys-spacing-4);
     display: flex;
     flex-direction: column;
     
-    // Ensure header sticks to top
+    // Ensure header stuck to top
     app-header-component {
         position: sticky;
         top: 0;
@@ -23,23 +23,22 @@ $shared-padding: var(--mat-sys-spacing-4);
     @include mixins.flex-container;
     @include theme.theme-responsive-container;
     flex-direction: row;
-    flex: 1; // Take remaining space after header and footer
-    justify-content: center; // Center the content horizontally
+    flex: 1; 
+    justify-content: center; 
     box-sizing: border-box;
     padding: var(--mat-sys-spacing-2);
-    overflow: auto; // Enable scrolling within the container
+    overflow: auto; 
     
     .main-content {
         @include theme.theme-surface;
         width: 80%;
-        max-width: 1200px; // Optional: set a max-width for very large screens
+        max-width: 1200px;
         padding: var(--mat-sys-spacing-4);
         box-sizing: border-box;
         min-height: 100%;
         overflow-y: auto;
     }
     
-    // Tablet layout (768px - 1023px) - Increase width slightly for smaller screens
     @media (max-width: 1023px) and (min-width: 768px) {
         padding: var(--mat-sys-spacing-1);
         
@@ -60,7 +59,6 @@ $shared-padding: var(--mat-sys-spacing-4);
         }
     }
     
-    // Mobile layout (575px and below) - Full width with minimal padding
     @media (max-width: 575px) {
         padding: var(--mat-sys-spacing-1);
         
