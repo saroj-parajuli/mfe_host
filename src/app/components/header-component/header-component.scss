@@ -4,52 +4,100 @@
 .main-header {
   @include theme.theme-header;
   @include theme.theme-responsive-container;
+  // Move all direct properties before nested rules
   height: 64px;
   display: flex;
   align-items: center;
   position: sticky;
-  position: -webkit-sticky; // Safari support
+  position: -webkit-sticky;
   top: 0;
-  z-index: 1000; 
+  z-index: 1000;
   width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Add shadow when sticky
-
-  @at-root {
-    .app-title {
-      @include theme.theme-text-primary;
-      font-size: var(--mat-sys-typescale-headline-small-size);
-      font-weight: var(--mat-sys-typescale-headline-small-weight);
-      color: var(--mat-sys-on-primary);
-      margin: 0;
-    }
-
-    .spacer {
-      flex: 1 1 auto;
-    }
-
-    .nav-button {
-      @include theme.theme-interactive;
-      color: var(--mat-sys-on-primary);
-      border-radius: var(--mat-sys-corner-small);
-      padding: var(--mat-sys-spacing-2) var(--mat-sys-spacing-3);
-
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-    }
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  .app-title {
+    @include theme.theme-text-primary;
+    font-size: var(--mat-sys-typescale-headline-small-size);
+    font-weight: var(--mat-sys-typescale-headline-small-weight);
+    color: var(--mat-sys-on-primary);
+    margin: 0;
   }
 
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .nav-button {
+    @include theme.theme-interactive;
+    color: var(--mat-sys-on-primary);
+    border-radius: var(--mat-sys-corner-small);
+    padding: var(--mat-sys-spacing-2) var(--mat-sys-spacing-3);
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  // Media queries
+  @media (max-width: 1024px) {
+    padding: 0 1rem;
+    
+    .app-title {
+      font-size: var(--mat-sys-typescale-title-large-size);
+    }
+  }
+  
   @media (max-width: 768px) {
+    height: 56px;
+    padding: 0 0.75rem;
+    justify-content: space-between;
+    
     .hide-on-mobile {
       display: none;
     }
-
-    justify-content: space-between;
 
     .app-title {
       margin-left: auto;
       margin-right: auto; 
       font-size: var(--mat-sys-typescale-title-medium-size);
+    }
+    
+    .nav-button {
+      padding: var(--mat-sys-spacing-1) var(--mat-sys-spacing-2);
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    height: 52px;
+    padding: 0 0.5rem;
+    
+    .app-title {
+      font-size: var(--mat-sys-typescale-title-small-size);
+      text-align: center;
+    }
+    
+    .nav-button {
+      padding: var(--mat-sys-spacing-1);
+      min-width: 40px;
+      min-height: 40px;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    height: 48px;
+    padding: 0 0.25rem;
+    
+    .app-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    
+    .nav-button {
+      min-width: 36px;
+      min-height: 36px;
+      padding: 0.25rem;
     }
   }
 }
