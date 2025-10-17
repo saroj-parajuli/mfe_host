@@ -1,7 +1,6 @@
-@use '@angular/material' as mat;
 @use '../../../sass/variables.scss' as variables;
 @use '../../../sass/mixin.scss' as mixins;
-@use '../../../sass/custom-theme.scss' as theme;
+@use '../../../sass/component-theme.scss' as theme;
 
 $shared-padding: var(--mat-sys-spacing-4);
 
@@ -38,100 +37,5 @@ $shared-padding: var(--mat-sys-spacing-4);
         overflow-y: auto;
         border-radius: var(--mat-sys-corner-large);
         box-shadow: var(--mat-sys-level1);
-    }
-    
-    // Large desktops (1200px+)
-    @media (min-width: 1200px) {
-        .main-content {
-            max-width: 1200px;
-            padding: var(--mat-sys-spacing-4);
-        }
-    }
-    
-    // Medium desktops (1024px - 1199px)
-    @media (max-width: 1199px) and (min-width: 1024px) {
-        padding: var(--mat-sys-spacing-2);
-        
-        .main-content {
-            max-width: 95%;
-            padding: var(--mat-sys-spacing-4);
-        }
-    }
-    
-    // Small desktops/Large tablets (768px - 1023px)
-    @media (max-width: 1023px) and (min-width: 768px) {
-        padding: var(--mat-sys-spacing-1);
-        
-        .main-content {
-            width: 100%;
-            max-width: 100%;
-            padding: var(--mat-sys-spacing-3);
-        }
-    }
-    
-    // Standard tablets (481px - 767px)
-    @media (max-width: 767px) and (min-width: 481px) {
-        padding: var(--mat-sys-spacing-1);
-        
-        .main-content {
-            width: 100%;
-            padding: var(--mat-sys-spacing-2);
-            min-height: calc(100vh - 120px);
-        }
-    }
-    
-    // Large mobile (376px - 480px)
-    @media (max-width: 480px) and (min-width: 376px) {
-        padding: var(--mat-sys-spacing-1);
-        
-        .main-content {
-            width: 100%;
-            padding: var(--mat-sys-spacing-3);
-            min-height: calc(100vh - 110px);
-        }
-    }
-    
-    // Standard mobile (321px - 375px)
-    @media (max-width: 375px) and (min-width: 321px) {
-        padding: var(--mat-sys-spacing-1);
-        
-        .main-content {
-            width: 100%;
-            padding: var(--mat-sys-spacing-2);
-            min-height: calc(100vh - 100px);
-        }
-    }
-    
-    // Extra small mobile (320px and below)
-    @media (max-width: 320px) {
-        padding: 0;
-        margin: 0;
-        
-        .main-content {
-            width: 100vw;
-            min-width: 100vw;
-            max-width: 100vw;
-            padding: var(--mat-sys-spacing-1);
-            margin: 0;
-            box-sizing: border-box;
-            min-height: calc(100vh - 90px);
-            border-radius: 0;
-            box-shadow: none;
-        }
-    }
-    
-    // Handle very small screens and landscape orientation
-    @media (max-height: 600px) and (orientation: landscape) {
-        .main-content {
-            min-height: calc(100vh - 80px);
-            overflow-y: auto;
-        }
-    }
-    
-    // Ensure content doesn't overflow on very wide screens
-    @media (min-width: 1400px) {
-        .main-content {
-            max-width: 1400px;
-        }
     }
 }

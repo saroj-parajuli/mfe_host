@@ -1,0 +1,66 @@
+// Component-only theme mixins and variables
+// This file contains NO Angular Material imports to avoid bundle bloat
+
+// Core theme mixins - keeping existing functionality
+@mixin theme-surface {
+    background-color: var(--mat-sys-surface);
+    color: var(--mat-sys-on-surface);
+  }
+  
+  @mixin theme-surface-variant {
+    background-color: var(--mat-sys-surface-variant);
+    color: var(--mat-sys-on-surface-variant);
+  }
+  
+  @mixin theme-primary-surface {
+    background-color: var(--mat-sys-primary);
+    color: var(--mat-sys-on-primary);
+  }
+  
+  // Component-specific mixins - preserving original styling intent
+  @mixin theme-header {
+    @include theme-primary-surface;
+    box-shadow: var(--mat-sys-level1);
+  }
+  
+  @mixin theme-footer {
+    @include theme-surface-variant;
+    border-top: 1px solid var(--mat-sys-outline-variant);
+  }
+  
+  @mixin theme-card {
+    @include theme-surface;
+    border-radius: var(--mat-sys-corner-medium);
+    box-shadow: var(--mat-sys-level2);
+  }
+  
+  @mixin theme-interactive {
+    transition: all 0.2s var(--mat-sys-motion-easing-standard);
+    
+    &:hover {
+      background-color: var(--mat-sys-surface-container-high);
+    }
+    
+    &:focus-visible {
+      outline: 2px solid var(--mat-sys-primary);
+      outline-offset: 2px;
+    }
+  }
+  
+  @mixin theme-text-primary {
+    color: var(--mat-sys-on-surface);
+    font-family: var(--mat-sys-typescale-body-large-font);
+  }
+  
+  @mixin theme-text-secondary {
+    color: var(--mat-sys-on-surface-variant);
+    font-family: var(--mat-sys-typescale-body-medium-font);
+  }
+  
+  @mixin theme-responsive-container {
+    padding: var(--mat-sys-spacing-4);
+    
+    @media (max-width: 768px) {
+      padding: var(--mat-sys-spacing-2);
+    }
+  }
