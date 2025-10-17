@@ -16,5 +16,5 @@ import { MatButtonModule } from '@angular/material/button';
   ]
 })
 export class HeaderComponent {
-  protected readonly appName = signal('ABCRentalTour');
+  protected readonly appName = signal('MFE HOST');
 }
