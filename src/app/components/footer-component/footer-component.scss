@@ -1,47 +1,38 @@
-@use '@angular/material' as mat;
-@use '../../../sass/custom-theme.scss' as theme;
-
 .footer {
-    @include theme.theme-footer;
-    @include theme.theme-responsive-container;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: var(--mat-sys-spacing-4);
-    justify-content: space-between;
     align-items: center;
     max-width: 95%;
     margin: var(--mat-sys-spacing-2) 0;
     border-radius: var(--mat-sys-corner-medium) var(--mat-sys-corner-medium) 0 0;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        gap: var(--mat-sys-spacing-3);
+    
+    @media (min-width: 768px) {
+        flex-direction: row;
     }
-
+    
     a,
     p {
-        @include theme.theme-text-secondary;
         font-size: var(--mat-sys-typescale-body-medium-size);
         margin: 0;
     }
-
+    
     .footer-links {
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-end;
         gap: var(--mat-sys-spacing-4);
         font-weight: var(--mat-sys-typescale-label-large-weight);
-
-        @media (max-width: 768px) {
+        
+        @media (min-width: 768px) {
+            flex-direction: row;
+        } else {
             flex-direction: column;
             gap: var(--mat-sys-spacing-2);
             justify-content: center;
         }
-
+        
         a {
-            @include theme.theme-interactive;
             color: var(--mat-sys-primary);
             text-decoration: none;
             padding: var(--mat-sys-spacing-1) var(--mat-sys-spacing-2);
@@ -59,3 +50,4 @@
         }
     }
 }
+
